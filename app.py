@@ -6,15 +6,14 @@ import os
 # -------------------------------
 # FILE PATH SETUP
 # -------------------------------
-BASE_PATH = r"C:\Users\nandh\OneDrive - Thiagarajar School of Management\FINAL PROJECT"
+import joblib
 
-model_path = os.path.join(BASE_PATH, "logistic_model.pkl")
-
+model = joblib.load("logistic_model.pkl")
 # -------------------------------
 # LOAD MODEL SAFELY
 # -------------------------------
 try:
-    model = pickle.load(open(model_path, "rb"))
+    model = joblib.load("logistic_model.pkl")
 except Exception as e:
     st.error(f"❌ Model not found or error loading model: {e}")
     st.stop()
